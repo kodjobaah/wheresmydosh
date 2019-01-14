@@ -1,0 +1,26 @@
+
+----------------------------------------------------------------------
+
+Registration:
+Provide Personal Details:
+validate phone number:
+
+
+Registration Flow:
+
+1-Client: Enter details           
+2-Wheresmydosh: Sends Sms Message with validation code
+3-Client: Enters validation code
+4-Wheresmydosh: Regsiters the user.
+
+
+Screen to add credit card details:
+
+Send Cash:
+Enter persons phone number:
+Select a credit card
+Set the amount
+
+-------------------------------- Usage ---------------------------------
+
+Check Inbox: Which will display list people who have sent you money.

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Help At Hand</string>
+    <string name="hello_world">Welcome to Help At Hand</string>
+    <string name="action_settings">Settings</string>
+</resources>

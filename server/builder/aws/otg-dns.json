@@ -1,0 +1,55 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "RecordSetGroup": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": {
+          "Ref": "HostedZoneName"
+        },
+        "RecordSets": [
+          {
+            "TTL": "3600",
+            "Type": "CNAME",
+            "ResourceRecords": [
+              {
+                "Ref": "Backend"
+              }
+            ],
+            "Name": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Ref": "ComponentName"
+                  },
+                  {
+                    "Ref": "HostedZoneName"
+                  }
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Parameters": {
+    "ComponentName": {
+	"Type": "String",
+	"Default":"ugc-file-upload",
+      "Description": "Your component name"
+    },
+    "HostedZoneName": {
+	"AllowedPattern": ".*\\.",
+	"Default":"wheresmydosh.com.",
+      "Type": "String",
+      "Description": "Domain to use with trailing dot (e.g. ')"
+    },
+    "Backend": {
+	"Type": "String",
+	"Default":"ugc-file-upload.int.c7dff5ab13c48206.xhst.bbci.co.uk",
+      "Description": "Backend hostname for your component (e.g. '[component-name].[env.]account-identifier.xhst.bbci.co.uk')"
+    }
+  }
+}
