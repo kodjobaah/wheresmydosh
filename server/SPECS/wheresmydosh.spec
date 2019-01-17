@@ -9,9 +9,6 @@ Summary: Api used to share money between friends and family
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch: x86_64
 
-#BuildRequires: systemd
-#%{?systemd_requires}
-
 
 Requires: systemd
 Requires: lighttpd
@@ -33,7 +30,7 @@ mkdir -p %{buildroot}/etc/wheresmydosh
 cp %{_topdir}/bin/wheresmydosh %{buildroot}/%{_bindir}
 cp %{_topdir}/scripts/run_wheresmydosh.sh %{buildroot}/%{_bindir}
 cp %{_topdir}/init/systemd/wheresmydosh.service %{buildroot}/etc/systemd/system
-cp %{_topdir}/config/etc/wheremydosh/wheresmydosh.conf %{buildroot}/etc/wheresmydosh
+cp %{_topdir}/config/etc/wheresmydosh/wheresmydosh.conf %{buildroot}/etc/wheresmydosh
 
 
 %files
@@ -52,12 +49,3 @@ cp %{_topdir}/config/etc/wheremydosh/wheresmydosh.conf %{buildroot}/etc/wheresmy
 
 %postun
 %systemd_postun wheresmydosh.service
-
-%post
-%systemd_post wheremydosh.service
-
-
-
-
-
-
