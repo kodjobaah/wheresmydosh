@@ -1,0 +1,51 @@
+Name: wheresmydosh 
+Version: 0.0.1
+Release: %{?_buildnumber}%{?dist}
+Group: Applications/Tools
+License: 
+Packager: Kodjo Baah <kodjo.baah@bbc.co.uk>
+Summary: Tool used for uploading files
+#Source: ugc-file-upload.tar.gz
+BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+BuildArch: x86_64
+
+BuildRequires: systemd
+%{?systemd_requires}
+
+Requires: cosmos-ca-chains
+Requires: cloud-httpd24-ssl-services-devs
+
+%description
+This is used for processing file upload
+
+%build
+mkdir -p %{buildroot}/%{_bindir}/
+mkdir -p %{buildroot}/etc/systemd/system/
+mkdir -p %{buildroot}/etc/sysconfig/httpd.d/
+mkdir -p %{buildroot}/etc/bake-scripts
+mkdir -p %{buildroot}/etc/ugcupload
+
+
+cp %{_topdir}/bake-scripts/01_start_ugcupload.sh %{buildroot}/etc/bake-scripts
+cp %{_topdir}/bin/ugc-file-upload %{buildroot}/%{_bindir}
+cp %{_topdir}/scripts/run_upload.sh %{buildroot}/%{_bindir}
+cp %{_topdir}/init/systemd/ugc-file-upload.service %{buildroot}/etc/systemd/system
+cp %{_topdir}/config/99-ugc-file-upload-http.conf %{buildroot}/etc/sysconfig/httpd.d
+cp %{_topdir}/config/etc/ugcupload/ugcupload.conf %{buildroot}/etc/ugcupload
+
+
+%files
+%defattr(-,root,root)
+%{_bindir}/ugc-file-upload
+%{_bindir}/run_upload.sh
+/etc/systemd/system/ugc-file-upload.service
+%attr(0755,root,root) /etc/sysconfig/httpd.d/99-ugc-file-upload-http.conf
+/etc/bake-scripts/01_start_ugcupload.sh
+/etc/ugcupload/ugcupload.conf
+
+
+
+
+
+
+

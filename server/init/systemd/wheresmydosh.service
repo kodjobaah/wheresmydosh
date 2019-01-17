@@ -1,0 +1,15 @@
+[Unit]
+Description=Wheresmydosh api used for transefferring money between friends.
+
+[Service]
+Environment="DEPLOYMENT=external"
+Type=forking
+ExecStart=/usr/bin/wheresmydosh.sh
+ExecStartPre=/bin/mkdir -p /var/log/wheresmydosh
+ExecStartPre=/bin/chmod a+x /usr/bin/wheresmydosh
+ExecStartPre=/bin/chmod a+x /usr/bin/wheresmydosh.sh
+ExecStartPre=/bin/chmod 0644 /etc/systemd/system/wheresmydosh.service
+
+
+[Install]
+WantedBy=multi-user.target
