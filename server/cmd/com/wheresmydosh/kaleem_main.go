@@ -7,6 +7,14 @@ import (
 	"github.com/kaleempeeroo/wheresmydosh/server/cmd/com/wheresmydosh/db"
 )
 
+type dbLogger struct { }
+
+func (d dbLogger) BeforeQuery(q *pg.QueryEvent) {}
+
+func (d dbLogger) AfterQuery(q *pg.QueryEvent) {
+	fmt.Println(q.FormattedQuery())
+}
+
 func main() {
 
 	dba := pg.Connect(&pg.Options{
@@ -15,6 +23,7 @@ func main() {
 		Database: "postgres",
 		Addr:     "wheresmydosh-cluster.cluster-cnuxmvkomgbc.us-east-2.rds.amazonaws.com:5432",
 	})
+	dba.AddQueryHook(dbLogger{})
 	defer dba.Close()
 	var n int
 	_, err := dba.QueryOne(pg.Scan(&n), "SELECT 1")
@@ -22,4 +31,5 @@ func main() {
 	fmt.Println(n)
 
 	db.CreateTableUser(dba)
+
 }
