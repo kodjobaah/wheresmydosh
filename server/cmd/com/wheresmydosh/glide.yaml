@@ -4,3 +4,16 @@ import:
   version: ^1.3.0
 - package: github.com/go-pg/pg.git
   version: ^7.1.7
+- package: github.com/xlzd/gotp
+- package: github.com/kabukky/httpscerts
+- package: github.com/gin-gonic/autotls
+  version: ^0.0.2
+- package: github.com/russross/blackfriday
+  version: ^2.0.1
+- package: github.com/shurcooL/sanitized_anchor_name
+  version: ^1.0.0
+- package: github.com/auth0/go-jwt-middleware
+- package: github.com/dgrijalva/jwt-go
+  version: ^3.2.0
+- package: github.com/google/uuid
+  version: ^1.1.0

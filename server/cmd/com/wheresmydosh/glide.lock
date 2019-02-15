@@ -1,8 +1,14 @@
-hash: 2fe1378e079aee56fcae21dea3f50beeea27c8a8b5c12c592cfa8e446d10b3f6
-updated: 2019-02-02T19:13:43.452492973+04:00
+hash: 15e9e34221d88fca822a8a912c3aab63eb9b0fea9ac0f0c9a0672983940603f3
+updated: 2019-02-15T01:07:51.037664187+04:00
 imports:
+- name: github.com/auth0/go-jwt-middleware
+  version: 5493cabe49f7bfa6e2ec444a09d334d90cd4e2bd
+- name: github.com/dgrijalva/jwt-go
+  version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/gin-contrib/sse
   version: a7658810eb745c2f22927282dea478278103a897
+- name: github.com/gin-gonic/autotls
+  version: 0b5f4fc15768a919a40d099fab9c397a704dcecd
 - name: github.com/gin-gonic/gin
   version: b869fe1415e4b9eb52f247441830d502aece2d4d
   subpackages:
@@ -23,29 +29,39 @@ imports:
 - name: github.com/go-pg/pg.git
   version: 750698e034bbc0f35e33e69df35cd8cc4c6b7d3d
 - name: github.com/golang/protobuf
-  version: 347cf4a86c1cb8d262994d8ef5924d4576c5b331
+  version: c823c79ea1570fb5ff454033735a8e68575d1d0f
   subpackages:
   - proto
+- name: github.com/google/uuid
+  version: 9b3b1e0f5f99ae461456d768e7d301a7acdaa2d8
 - name: github.com/jinzhu/inflection
   version: 04140366298a54a039076d798123ffa108fff46c
 - name: github.com/json-iterator/go
-  version: f64ce68b6eea7b957a0d0d43e224dfe491b0babe
+  version: 5bc93205020f6311d7e4a34f82c5616a18ec35e5
+- name: github.com/kabukky/httpscerts
+  version: 617593d7dcb39c9ed617bb62c5e2056244d02184
 - name: github.com/mattn/go-isatty
   version: 3fb116b820352b7f0c281308a4d6250c22d94e27
 - name: github.com/modern-go/concurrent
   version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
 - name: github.com/modern-go/reflect2
   version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/russross/blackfriday
+  version: d3b5b032dc8e8927d31a5071b56e14c89f045135
+- name: github.com/shurcooL/sanitized_anchor_name
+  version: 7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615
 - name: github.com/ugorji/go
-  version: ee1426cffec05e61aaf15dad53bac697c48546ed
+  version: e444a5086c436778cf9281a7059a3d58b9e17935
   subpackages:
   - codec
+- name: github.com/xlzd/gotp
+  version: c8557ba2c11930b3069b31bfd80f38cc774cc68a
 - name: golang.org/x/crypto
-  version: b8fe1690c61389d7d2a8074a507d1d40c5d30448
+  version: 74369b46fc6756741c016591724fd1cb8e26845f
   subpackages:
   - pbkdf2
 - name: golang.org/x/sys
-  version: afcc84fd7533758f95a6e93ae710aa945a0b7e73
+  version: 983097b1a8a340cd1cc7df17d735154d89e10b1a
   subpackages:
   - unix
 - name: gopkg.in/go-playground/validator.v8
@@ -53,5 +69,5 @@ imports:
 - name: gopkg.in/yaml.v2
   version: 51d6538a90f86fe93ac480b35f37b2be17fef232
 - name: mellium.im/sasl
-  version: c5ec7d4d75b0e9cc36c45fd84bf7bb7ed05037a8
+  version: 81fd31dac46e264e6c9bdd3ae8384e58498d9887
 testImports: []
