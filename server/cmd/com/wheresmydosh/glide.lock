@@ -1,8 +1,12 @@
-hash: 15e9e34221d88fca822a8a912c3aab63eb9b0fea9ac0f0c9a0672983940603f3
-updated: 2019-02-15T01:07:51.037664187+04:00
+hash: 500d7119858934759592e960465efa3fece58b021a8545091a0ba24dbfedf61a
+updated: 2019-02-20T20:09:18.261590618+04:00
 imports:
 - name: github.com/auth0/go-jwt-middleware
   version: 5493cabe49f7bfa6e2ec444a09d334d90cd4e2bd
+- name: github.com/aws/aws-sdk-go
+  version: de216d45a3df361a2f571b8eb88db86f2b50d82f
+  subpackages:
+  - '...'
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/gin-contrib/sse
@@ -57,11 +61,11 @@ imports:
 - name: github.com/xlzd/gotp
   version: c8557ba2c11930b3069b31bfd80f38cc774cc68a
 - name: golang.org/x/crypto
-  version: 74369b46fc6756741c016591724fd1cb8e26845f
+  version: a4c6cb3142f211c99e4bf4cd769535b29a9b616f
   subpackages:
   - pbkdf2
 - name: golang.org/x/sys
-  version: 983097b1a8a340cd1cc7df17d735154d89e10b1a
+  version: 629670e5acc5b3e069375d323404911dc8fe1d19
   subpackages:
   - unix
 - name: gopkg.in/go-playground/validator.v8

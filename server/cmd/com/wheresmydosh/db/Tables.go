@@ -11,16 +11,17 @@ import (
 type User struct {
 	ID          int       `sql:",pk"`
 	UserID      string    `sql:"user_id,unique"`
-	FirstName   string    `sql:"first_name"`
-	MiddleName  string    `sql:"middle_name"`
-	LastName    string    `sql:"last_name"`
-	PhoneNumber string    `sql:"phone_number"`
-	Email       string    `sql:"email"`
+	FirstName   string    `sql:"first_name" json:"first_name"`
+	MiddleName  string    `sql:"middle_name" json:"middle_name"`
+	LastName    string    `sql:"last_name" json:"last_name"`
+	PhoneNumber string    `sql:"phone_number" json:"phone_number"`
+	Email       string    `sql:"email" json:"email"`
 	CreatedAt   time.Time `sql:"created_at"`
 	UpdatedAt   time.Time `sql:"updated_at"`
 	IsActive    bool      `sql:"is_active"`
 	//Cards       []*CardDetails // has many
 	//Transfer []*Transfer
+
 }
 
 type CardDetails struct {
@@ -53,7 +54,7 @@ type Transfer struct {
 }
 
 func CreateDBTables(db *pg.DB) error {
-
+	defer db.Close()
 	models := []interface{}{&User{}, &CardDetails{}, &Transfer{}}
 	for _, model := range models {
 		err := db.DropTable(model, &orm.DropTableOptions{
