@@ -1,1 +1,2 @@
 **/*.pem
+/server/cmd/com/wheresmydosh/vendor
